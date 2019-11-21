@@ -20,6 +20,7 @@ const MenuButton = styled.button`
   background: transparent;
   font-size: 20px;
   padding: 0;
+  font-weight: bold;
 `;
 
 const MotorradLogo = styled.img`
