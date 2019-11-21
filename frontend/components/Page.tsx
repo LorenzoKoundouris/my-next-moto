@@ -7,7 +7,7 @@ const theme = {
   secondaryColour: '#f2f2f2',
   tertiaryColour: '#e6e6e6',
   backgroundColour: '#fff',
-  fontColour: 'pink',
+  fontColour: '#000',
   highlightColour: '#0062ff',
 };
 
@@ -19,6 +19,7 @@ class Page extends React.Component {
           <GlobalStyle />
           <StyledPage>
             <Header />
+            {this.props.children}
           </StyledPage>
         </>
       </ThemeProvider>
@@ -30,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    font-family: Verdana;
   }
 `;
 
