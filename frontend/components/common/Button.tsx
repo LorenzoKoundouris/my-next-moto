@@ -4,14 +4,27 @@ interface IButtonProps {
   type?: 'seamless' | 'primary';
   onClick: () => void;
   children: string | JSX.Element;
+  margin?: string;
+  padding?: string;
 }
-
-const Button = ({ type = 'seamless', onClick, children }: IButtonProps) => {
+const Button = ({
+  type = 'seamless',
+  onClick,
+  children,
+  margin,
+  padding,
+}: IButtonProps) => {
   const ButtonWrapper = buttonMap[type];
-  return <ButtonWrapper onClick={onClick}>{children}</ButtonWrapper>;
+  return (
+    <ButtonWrapper onClick={onClick} margin={margin} padding={padding}>
+      {children}
+    </ButtonWrapper>
+  );
 };
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<IButtonProps>`
+  margin: ${props => props.margin};
+  padding: ${props => props.padding};
   color: ${props => props.theme.fontColour};
   -webkit-user-select: none;
   -moz-user-select: none;
