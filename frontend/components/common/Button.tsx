@@ -1,36 +1,51 @@
 import styled from 'styled-components';
 
+interface IStylesConfig {
+  margin?: string;
+  padding?: string;
+  fontSize?: string;
+  width?: string;
+}
+
 interface IButtonProps {
   type?: 'seamless' | 'primary';
   onClick: () => void;
   children: string | JSX.Element;
-  margin?: string;
-  padding?: string;
+  stylesConfig?: IStylesConfig;
 }
+
 const Button = ({
   type = 'seamless',
   onClick,
   children,
-  margin,
-  padding,
+  stylesConfig,
 }: IButtonProps) => {
   const ButtonWrapper = buttonMap[type];
   return (
-    <ButtonWrapper onClick={onClick} margin={margin} padding={padding}>
+    <ButtonWrapper onClick={onClick} {...stylesConfig}>
       {children}
     </ButtonWrapper>
   );
 };
 
-const StyledButton = styled.button<IButtonProps>`
-  margin: ${props => props.margin};
-  padding: ${props => props.padding};
-  color: ${props => props.theme.fontColour};
+const StyledButton = styled.button<IStylesConfig>`
+  /* props styles */
+  font-size: ${props => props.fontSize};
+  margin: ${props => props.margin || 0};
+  padding: ${props => props.padding || 0};
+
+  /* theme styles */
+  color: ${({ theme }) => theme.fontColour};
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const SeamlessButton = styled(StyledButton)`
