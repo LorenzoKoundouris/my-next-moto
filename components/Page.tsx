@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 // components
-import Header from '../components/Header';
+import Header from './Header';
 
 const theme = {
   primaryColour: '#fff',
@@ -42,8 +42,8 @@ const GlobalStyle = createGlobalStyle`
 // styles
 const StyledPage = styled.div`
   position: relative;
-  background: ${props => props.theme.backgroundColour};
-  color: ${props => props.theme.fontColour};
+  background: ${(props: any) => props.theme.backgroundColour};
+  color: ${(props: any) => props.theme.fontColour};
 `;
 
 export default Page;

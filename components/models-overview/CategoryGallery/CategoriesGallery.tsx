@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // data
-import * as data from '../../../../backend/model-overview.json';
+import * as data from '../../../data/model-overview.json';
 
 // components
 import CategoriesFilter from '../CategoryFilter/CategoriesFilter';

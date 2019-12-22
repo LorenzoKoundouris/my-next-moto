@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // components
-import LinkItem from '../components/common/LinkItem';
+import LinkItem from './common/LinkItem';
 import BurgerIcon from './common/BurgerMenu';
 
 function Header() {
@@ -30,7 +30,7 @@ const StyledHeader = styled.div`
   position: sticky;
   padding: 13px 30px 0 0;
   height: 72px;
-  background: ${props => props.theme.primaryColour};
+  background: ${(props: any) => props.theme.primaryColour};
   justify-content: space-between;
 `;
 
