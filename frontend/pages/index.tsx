@@ -1,11 +1,11 @@
+// libs
 import styled from 'styled-components';
 
-const Index = () => (
-  <>
-    <StyledTitle>My Next Moto</StyledTitle>
-  </>
-);
+function Index() {
+  return <StyledTitle>My Next Moto</StyledTitle>;
+}
 
+// styles
 const StyledTitle = styled.h1`
   color: red;
 `;

@@ -1,5 +1,5 @@
+// libs
 import styled from 'styled-components';
-
 import Link from 'next/link';
 
 interface ILinkProps {
@@ -7,12 +7,15 @@ interface ILinkProps {
   children: string | JSX.Element;
 }
 
-const LinkItem = ({ children, href }: ILinkProps) => (
-  <Link href={href}>
-    <StyledAnchorTag>{children}</StyledAnchorTag>
-  </Link>
-);
+function LinkItem({ children, href }: ILinkProps) {
+  return (
+    <Link href={href}>
+      <StyledAnchorTag>{children}</StyledAnchorTag>
+    </Link>
+  );
+}
 
+// styles
 const StyledAnchorTag = styled.a`
   cursor: pointer;
   display: flex;

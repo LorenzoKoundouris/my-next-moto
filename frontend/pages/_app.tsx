@@ -1,5 +1,8 @@
+// libs
 import React from 'react';
 import App, { AppContext } from 'next/app';
+
+// components
 import Page from '../components/Page';
 
 class MyApp extends App {

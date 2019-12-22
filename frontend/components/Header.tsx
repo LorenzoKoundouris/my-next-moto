@@ -1,25 +1,44 @@
+// libs
 import styled from 'styled-components';
 
+// components
 import LinkItem from '../components/common/LinkItem';
+import BurgerIcon from './common/BurgerMenu';
 
-const Header = () => (
-  <StyledHeader>
-    <LinkItem href='/'>🍔MENU</LinkItem>
-    <LogoContainer>
-      <MotorradLogo
-        alt='BMW Motorrad Logo'
-        src='https://www.bmw-motorrad.co.uk/content/dam/bmwmotorradnsc/common/mnm/graphics/bmw_motorrad_logo.png.asset.1572270945089.png'
-      />
-    </LogoContainer>
-  </StyledHeader>
-);
+function Header() {
+  return (
+    <StyledHeader>
+      <LeftMenu>
+        <LinkItem href='/'>
+          <BurgerIcon />
+        </LinkItem>
+      </LeftMenu>
 
+      <LogoContainer>
+        <MotorradLogo
+          alt='BMW Motorrad Logo'
+          src='https://www.bmw-motorrad.co.uk/content/dam/bmwmotorradnsc/common/mnm/graphics/bmw_motorrad_logo.png.asset.1572270945089.png'
+        />
+      </LogoContainer>
+    </StyledHeader>
+  );
+}
+
+// styles
 const StyledHeader = styled.div`
-  height: 85px;
   display: flex;
-  background: yellow; /* set props.theme.primaryColour */
+  position: sticky;
+  padding: 13px 30px 0 0;
+  height: 72px;
+  background: ${props => props.theme.primaryColour};
   justify-content: space-between;
-  padding: 0 20px;
+`;
+
+const LeftMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0 30px;
+  cursor: pointer;
 `;
 
 const LogoContainer = styled.div`

@@ -1,5 +1,8 @@
+// libs
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+
+// components
 import Header from '../components/Header';
 
 const theme = {
@@ -27,6 +30,7 @@ class Page extends React.Component {
   }
 }
 
+// global styles
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -35,7 +39,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+// styles
 const StyledPage = styled.div`
+  position: relative;
   background: ${props => props.theme.backgroundColour};
   color: ${props => props.theme.fontColour};
 `;

@@ -1,3 +1,4 @@
+// libs
 import styled from 'styled-components';
 
 interface IStylesConfig {
@@ -14,20 +15,18 @@ interface IButtonProps {
   stylesConfig?: IStylesConfig;
 }
 
-const Button = ({
-  type = 'seamless',
-  onClick,
-  children,
-  stylesConfig,
-}: IButtonProps) => {
+function Button(props: IButtonProps) {
+  const { type = 'seamless', onClick, children, stylesConfig } = props;
   const ButtonWrapper = buttonMap[type];
+
   return (
     <ButtonWrapper onClick={onClick} {...stylesConfig}>
       {children}
     </ButtonWrapper>
   );
-};
+}
 
+// styles
 const StyledButton = styled.button<IStylesConfig>`
   /* props styles */
   font-size: ${props => props.fontSize};
