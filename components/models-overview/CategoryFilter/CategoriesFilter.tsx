@@ -20,13 +20,20 @@ class CategoriesFilter extends React.Component<
   constructor(props: ICategoryFilterProps) {
     super(props);
 
-    this.state = {
-      categories: props.categories.map((category, idx) => ({
+    const categories = [
+      {
+        id: 123456,
+        name: 'All',
+        isSelected: true,
+      },
+      ...props.categories.map(category => ({
         id: category.id,
         name: category.name,
-        isSelected: !idx,
-      })),
-    };
+        isSelected: false,
+      }))
+    ];
+
+    this.state = { categories };
   }
 
   private handleClick = (categoryId: number) => {
