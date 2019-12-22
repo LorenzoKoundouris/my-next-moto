@@ -1,4 +1,5 @@
 // libs
+import React from 'react';
 import styled from 'styled-components';
 
 // data
@@ -10,28 +11,60 @@ import CategorySection from './CategorySection';
 
 // interfaces
 import ICategory from '../../../interfaces/ICategory';
+import { CATEGORY_ALL } from '../../../utils/constants/model-categories';
+import Category from '../../../types/Categories';
 
-function CategoriesGallery() {
-  const strippedCategories = data.categories.map(category => ({
-    id: category.id,
-    name: category.name,
-  }));
-
-  return (
-    <Container>
-      <CategoriesFilter categories={strippedCategories} />
-      {getCategorySections()}
-    </Container>
-  );
+interface ICategoriesGalleryState {
+  categories: ICategory[];
+  categoryFilters: Category[];
+  selectedFilter: string;
 }
 
-const getCategorySections = () => {
-  return data.categories.map(
-    ({ id, name, models }: ICategory): JSX.Element => {
-      return <CategorySection key={id} id={id} name={name} models={models} />;
+class CategoriesGallery extends React.Component<any, ICategoriesGalleryState> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      categories: data.categories,
+      categoryFilters: data.categories.map(
+        category => category.name as Category
+      ),
+      selectedFilter: CATEGORY_ALL,
+    };
+  }
+
+  private getCategorySections = () => {
+    const { categories, selectedFilter } = this.state;
+
+    if (selectedFilter === CATEGORY_ALL) {
+      return categories.map(({ id, name, models }) => (
+        <CategorySection key={id} id={id} name={name} models={models} />
+      ));
     }
-  );
-};
+
+    const { id, name, models } =
+      categories.find(({ name }) => name === selectedFilter) ?? categories[0];
+    return [<CategorySection key={id} id={id} name={name} models={models} />];
+  };
+
+  private handleFilter = (filter: string) => {
+    this.setState({ selectedFilter: filter });
+  };
+
+  public render() {
+    const { categoryFilters } = this.state;
+
+    return (
+      <Container>
+        <CategoriesFilter
+          categoryFilters={categoryFilters}
+          handleFilter={this.handleFilter}
+        />
+        {this.getCategorySections()}
+      </Container>
+    );
+  }
+}
 
 // styles
 const Container = styled.div`

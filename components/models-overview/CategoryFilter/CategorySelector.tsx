@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import Button from '../../common/Button';
 
 interface ICategoriesFilterProps {
-  category: { id: number; name: string; isSelected: boolean };
-  handleClick: (categoryId: number) => void;
+  category: { name: string; isSelected: boolean };
+  handleClick: (categoryName: string) => void;
 }
 
 const buttonStylesConfig = {
@@ -16,29 +16,23 @@ const buttonStylesConfig = {
   padding: '0 10px',
 };
 
-class CategorySelector extends React.Component<ICategoriesFilterProps> {
-  constructor(props: ICategoriesFilterProps) {
-    super(props);
-  }
+function CategorySelector(props: ICategoriesFilterProps) {
+  const {
+    category: { name, isSelected },
+    handleClick,
+  } = props;
 
-  public render() {
-    const {
-      category: { id, name, isSelected },
-      handleClick,
-    } = this.props;
-
-    return (
-      <StyledSelector>
-        <Button
-          onClick={() => handleClick(id)}
-          stylesConfig={buttonStylesConfig}
-        >
-          {name}
-        </Button>
-        {isSelected && <Arrow />}
-      </StyledSelector>
-    );
-  }
+  return (
+    <StyledSelector>
+      <Button
+        onClick={() => handleClick(name)}
+        stylesConfig={buttonStylesConfig}
+      >
+        {name}
+      </Button>
+      {isSelected && <Arrow />}
+    </StyledSelector>
+  );
 }
 
 const StyledSelector = styled.div`

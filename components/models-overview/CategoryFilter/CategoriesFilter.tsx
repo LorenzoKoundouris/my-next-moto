@@ -4,13 +4,15 @@ import styled from 'styled-components';
 
 // components
 import CategorySelector from './CategorySelector';
+import Category from '../../../types/Categories';
 
 interface ICategoryFilterProps {
-  categories: { id: number; name: string }[];
+  categoryFilters: Category[];
+  handleFilter: (selectedFilter: string) => void;
 }
 
 interface ICategoryFilterState {
-  categories: { id: number; name: string; isSelected: boolean }[];
+  categoryFilters: { name: string; isSelected: boolean }[];
 }
 
 class CategoriesFilter extends React.Component<
@@ -20,36 +22,38 @@ class CategoriesFilter extends React.Component<
   constructor(props: ICategoryFilterProps) {
     super(props);
 
-    const categories = [
+    const allCategoryFilters = [
       {
-        id: 123456,
         name: 'All',
         isSelected: true,
       },
-      ...props.categories.map(category => ({
-        id: category.id,
-        name: category.name,
+      ...props.categoryFilters.map(category => ({
+        name: category,
         isSelected: false,
-      }))
+      })),
     ];
 
-    this.state = { categories };
+    this.state = { categoryFilters: allCategoryFilters };
   }
 
-  private handleClick = (categoryId: number) => {
-    const updatedCategories = this.state.categories.map(category => {
-      return { ...category, isSelected: category.id === categoryId };
+  private handleClick = (categoryName: string) => {
+    const { handleFilter } = this.props;
+    const { categoryFilters } = this.state;
+
+    const updatedCategories = categoryFilters.map(category => {
+      return { ...category, isSelected: category.name === categoryName };
     });
 
-    this.setState({ categories: updatedCategories });
+    this.setState({ categoryFilters: updatedCategories });
+    handleFilter(categoryName);
   };
 
   private getCategories = () => {
-    const { categories } = this.state;
+    const { categoryFilters } = this.state;
 
-    return categories.map(category => (
+    return categoryFilters.map(category => (
       <CategorySelector
-        key={category.id}
+        key={category.name}
         category={category}
         handleClick={this.handleClick}
       />

@@ -42,8 +42,8 @@ const GlobalStyle = createGlobalStyle`
 // styles
 const StyledPage = styled.div`
   position: relative;
-  background: ${(props: any) => props.theme.backgroundColour};
-  color: ${(props: any) => props.theme.fontColour};
+  background: ${props => props.theme.backgroundColour};
+  color: ${props => props.theme.fontColour};
 `;
 
 export default Page;

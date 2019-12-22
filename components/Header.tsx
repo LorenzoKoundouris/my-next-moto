@@ -30,7 +30,7 @@ const StyledHeader = styled.div`
   position: sticky;
   padding: 13px 30px 0 0;
   height: 72px;
-  background: ${(props: any) => props.theme.primaryColour};
+  background: ${props => props.theme.primaryColour};
   justify-content: space-between;
 `;
 

@@ -24,7 +24,7 @@ const Burger = styled.div`
 const Line = styled.div`
   width: 23px;
   height: 3px;
-  background-color: ${(props: any) => props.theme.fontColour};
+  background-color: ${props => props.theme.fontColour};
   margin: 2px 0;
 `;
 
