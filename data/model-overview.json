@@ -6,7 +6,9 @@
       "models": [
         {
           "id": 0,
-          "name": "S 1000 RR"
+          "name": "S 1000 RR",
+          "shortDescription": "The superbike of superlatives.",
+          "thumbnail": "s_1000_rr.jpeg"
         }
       ]
     },
@@ -16,7 +18,9 @@
       "models": [
         {
           "id": 0,
-          "name": "K 1600 B"
+          "name": "K 1600 B",
+          "shortDescription": "Take a relaxed cruise anytime.",
+          "thumbnail": "k_1600_b.jpeg"
         }
       ]
     },
@@ -26,7 +30,9 @@
       "models": [
         {
           "id": 0,
-          "name": "R 1250 R"
+          "name": "R 1250 R",
+          "shortDescription": "As versatile and expressive as never before.",
+          "thumbnail": "r_1250_r.jpeg"
         }
       ]
     }
