@@ -9,7 +9,7 @@ function BurgerIcon() {
         <Line />
         <Line />
       </Burger>
-      <strong>MENU</strong>
+      <Menu>MENU</Menu>
     </>
   );
 }
@@ -26,6 +26,13 @@ const Line = styled.div`
   height: 3px;
   background-color: ${props => props.theme.fontColour};
   margin: 2px 0;
+`;
+
+const Menu = styled.strong`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 2px;
 `;
 
 export default BurgerIcon;

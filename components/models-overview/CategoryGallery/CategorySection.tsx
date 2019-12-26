@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 // components
 import ICategory from '../../../interfaces/ICategory';
+import ModelTile from './ModelTile';
+
+// interfaces
 import IModel from '../../../interfaces/IModel';
 
 function CategorySection({ id, name, models }: ICategory) {
@@ -16,23 +19,15 @@ function CategorySection({ id, name, models }: ICategory) {
 
 // styles
 const getModelTiles = (models: IModel[]) => {
-  return models.map(model => (
-    <ModelTile key={model.id}>{model.name}</ModelTile>
-  ));
+  return models.map(model => <ModelTile key={model.id} model={model} />);
 };
 
 const StyledSection = styled.div`
   padding: 20px 60px;
 `;
 
-const SectionTitle = styled.h2`
-  /* make font larger */
-`;
-
-const ModelTile = styled.div`
-  width: 295px;
-  height: 405px;
-  background: ${props => props.theme.primaryColour};
+const SectionTitle = styled.h1`
+  margin-bottom: 15px;
 `;
 
 export default CategorySection;

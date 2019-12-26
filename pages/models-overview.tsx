@@ -20,22 +20,14 @@ function ModelsOverview() {
 
 //styles
 const Banner = styled.div`
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
   margin: 125px 200px;
 `;
 
 const StyledTitle = styled.h1`
-  color: ${props => props.theme.fontColour};
   font-size: 80px;
 `;
 
-const StyledSubtitle = styled.h1`
-  color: ${props => props.theme.fontColour};
-`;
+const StyledSubtitle = styled.h1``;
 
 const MainContent = styled.div`
   width: 100%;
