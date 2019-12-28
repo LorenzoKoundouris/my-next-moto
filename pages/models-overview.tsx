@@ -8,8 +8,10 @@ function ModelsOverview() {
   return (
     <>
       <Banner>
+        {/* <div> */}
         <StyledTitle>ALL MODELS</StyledTitle>
         <StyledSubtitle>FIND YOUR NEW MOTORCYCLE</StyledSubtitle>
+        {/* </div> */}
       </Banner>
       <MainContent>
         <CategoriesGallery />
@@ -20,14 +22,28 @@ function ModelsOverview() {
 
 //styles
 const Banner = styled.div`
-  margin: 125px 200px;
+  margin: 8% 15%;
 `;
 
 const StyledTitle = styled.h1`
-  font-size: 80px;
+  font-size: 28px;
+
+  @media screen and (min-width: 760px) {
+    font-size: 36px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 80px;
+  }
 `;
 
-const StyledSubtitle = styled.h1``;
+const StyledSubtitle = styled.h4`
+  font-size: 16px;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 32px;
+  }
+`;
 
 const MainContent = styled.div`
   width: 100%;
