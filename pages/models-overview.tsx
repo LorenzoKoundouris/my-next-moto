@@ -8,10 +8,8 @@ function ModelsOverview() {
   return (
     <>
       <Banner>
-        {/* <div> */}
         <StyledTitle>ALL MODELS</StyledTitle>
         <StyledSubtitle>FIND YOUR NEW MOTORCYCLE</StyledSubtitle>
-        {/* </div> */}
       </Banner>
       <MainContent>
         <CategoriesGallery />
