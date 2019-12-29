@@ -13,12 +13,8 @@ function Header() {
           <BurgerIcon />
         </LinkItem>
       </LeftMenu>
-
       <LogoContainer>
-        <MotorradLogo
-          alt='BMW Motorrad Logo'
-          src='https://www.bmw-motorrad.co.uk/content/dam/bmwmotorradnsc/common/mnm/graphics/bmw_motorrad_logo.png.asset.1572270945089.png'
-        />
+        <MotorradLogo alt='BMW Motorrad Logo' />
       </LogoContainer>
     </StyledHeader>
   );
@@ -27,28 +23,40 @@ function Header() {
 // styles
 const StyledHeader = styled.div`
   display: flex;
-  position: sticky;
-  padding: 13px 30px 0 0;
-  height: 72px;
+  height: 85px;
   background: ${props => props.theme.primaryColour};
   justify-content: space-between;
 `;
 
 const LeftMenu = styled.div`
   display: flex;
-  justify-content: center;
-  padding: 0 30px;
   cursor: pointer;
+
+  @media screen and (max-width: 1279px) {
+    padding: 0 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 30px;
+  }
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-items: center;
 `;
 
 const MotorradLogo = styled.img`
-  width: 140px;
+  margin: 0 20px;
+  height: 30px;
+
+  @media screen and (max-width: 349px) {
+    content: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/1200px-BMW.svg.png');
+  }
+
+  @media screen and (min-width: 350px) {
+    content: url('https://www.bmw-motorrad.co.uk/content/dam/bmwmotorradnsc/common/mnm/graphics/bmw_motorrad_logo.png.asset.1572270945089.png');
+  }
 `;
 
 export default Header;
