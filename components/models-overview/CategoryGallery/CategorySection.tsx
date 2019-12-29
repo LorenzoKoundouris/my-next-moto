@@ -37,7 +37,6 @@ const SectionTitle = styled.h1`
 
 const SectionModels = styled.div`
   display: grid;
-  background: purple;
 
   @media screen and (max-width: 439px) {
     padding: 20px;
