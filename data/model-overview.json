@@ -9,6 +9,12 @@
           "name": "S 1000 RR",
           "shortDescription": "The superbike of superlatives.",
           "thumbnail": "s_1000_rr.jpeg"
+        },
+        {
+          "id": 1,
+          "name": "S 1250 RS",
+          "shortDescription": "Sporty touring in the fast lane.",
+          "thumbnail": "s_1250_rs.jpeg"
         }
       ]
     },
@@ -21,6 +27,30 @@
           "name": "K 1600 B",
           "shortDescription": "Take a relaxed cruise anytime.",
           "thumbnail": "k_1600_b.jpeg"
+        },
+        {
+          "id": 1,
+          "name": "K 1600 Grand America",
+          "shortDescription": "Luxury Touring Bike. Pure riding pleasure.",
+          "thumbnail": "k_1600_grand_america.jpeg"
+        },
+        {
+          "id": 2,
+          "name": "K 1600 GTL",
+          "shortDescription": "Luxury travel. First class arrival.",
+          "thumbnail": "k_1600_gtl.jpeg"
+        },
+        {
+          "id": 3,
+          "name": "K 1600 GT",
+          "shortDescription": "Wanderlust on two wheels.",
+          "thumbnail": "k_1600_gt.jpeg"
+        },
+        {
+          "id": 4,
+          "name": "R 1250 RT",
+          "shortDescription": "Do it your way.",
+          "thumbnail": "r_1250_rt.jpeg"
         }
       ]
     },
