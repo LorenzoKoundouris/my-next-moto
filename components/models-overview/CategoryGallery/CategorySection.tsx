@@ -12,7 +12,7 @@ function CategorySection({ id, name, models }: ICategory) {
   return (
     <StyledSection key={id}>
       <SectionTitle>{name}</SectionTitle>
-      {getModelTiles(models)}
+      <SectionModels>{getModelTiles(models)}</SectionModels>
     </StyledSection>
   );
 }
@@ -23,11 +23,19 @@ const getModelTiles = (models: IModel[]) => {
 };
 
 const StyledSection = styled.div`
-  padding: 20px 60px;
+  min-width: 250px;
 `;
 
 const SectionTitle = styled.h1`
-  margin-bottom: 15px;
+  @media screen and (min-width: 300px) {
+    margin: 10px 0 0 50px;
+  }
+`;
+
+const SectionModels = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export default CategorySection;
