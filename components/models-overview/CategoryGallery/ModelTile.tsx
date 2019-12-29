@@ -27,29 +27,8 @@ function ModelTile({ model }: IModelTileProps) {
 const StyledModelTile = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  height: 300px;
   background: ${props => props.theme.primaryColour};
   overflow: hidden;
-  margin: 10px 0;
-
-  @media screen and (min-width: 300px) {
-    height: 350px;
-  }
-
-  @media screen and (min-width: 350px) {
-    margin: 10px;
-  }
-
-  @media screen and (min-width: 450px) {
-    max-width: 200px;
-    height: 300px;
-  }
-
-  @media screen and (min-width: 1000px) {
-    max-width: 300px;
-    height: 400px;
-  }
 `;
 
 const Thumbnail = styled.img`
@@ -75,6 +54,7 @@ const ModelName = styled.h2`
 const Description = styled.p`
   font-size: 14px;
   margin-top: 10px;
+  margin-bottom: 30%;
 `;
 
 const Bar = styled.div`
