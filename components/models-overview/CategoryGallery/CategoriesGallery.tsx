@@ -12,12 +12,14 @@ import CategorySection from './CategorySection';
 // interfaces
 import ICategory from '../../../interfaces/ICategory';
 import { CATEGORY_ALL } from '../../../utils/constants/model-categories';
+
+// types
 import Category from '../../../types/Categories';
 
 interface ICategoriesGalleryState {
   categories: ICategory[];
-  categoryFilters: Category[];
-  selectedFilter: string;
+  filterItems: Category[];
+  selectedFilterItem: Category;
 }
 
 class CategoriesGallery extends React.Component<any, ICategoriesGalleryState> {
@@ -26,39 +28,39 @@ class CategoriesGallery extends React.Component<any, ICategoriesGalleryState> {
 
     this.state = {
       categories: data.categories,
-      categoryFilters: data.categories.map(
-        category => category.name as Category
-      ),
-      selectedFilter: CATEGORY_ALL,
+      filterItems: data.categories.map(category => category.name as Category),
+      selectedFilterItem: CATEGORY_ALL,
     };
   }
 
   private getCategorySections = () => {
-    const { categories, selectedFilter } = this.state;
+    const { categories, selectedFilterItem } = this.state;
 
-    if (selectedFilter === CATEGORY_ALL) {
+    if (selectedFilterItem === CATEGORY_ALL) {
       return categories.map(({ id, name, models }) => (
         <CategorySection key={id} id={id} name={name} models={models} />
       ));
     }
 
     const { id, name, models } =
-      categories.find(({ name }) => name === selectedFilter) ?? categories[0];
+      categories.find(({ name }) => name === selectedFilterItem) ??
+      categories[0];
     return [<CategorySection key={id} id={id} name={name} models={models} />];
   };
 
-  private handleFilter = (filter: string) => {
-    this.setState({ selectedFilter: filter });
+  private handleFilter = (selectedFilterItem: Category) => {
+    this.setState({ selectedFilterItem });
   };
 
   public render() {
-    const { categoryFilters } = this.state;
+    const { filterItems, selectedFilterItem } = this.state;
 
     return (
       <Container>
         <CategoriesFilter
-          categoryFilters={categoryFilters}
+          filterItems={filterItems}
           handleFilter={this.handleFilter}
+          selectedFilterItem={selectedFilterItem}
         />
         {this.getCategorySections()}
       </Container>

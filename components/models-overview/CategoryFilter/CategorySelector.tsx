@@ -4,10 +4,12 @@ import styled from 'styled-components';
 
 // components
 import Button from '../../common/Button';
+import Category from '../../../types/Categories';
 
 interface ICategoriesFilterProps {
-  category: { name: string; isSelected: boolean };
-  handleClick: (categoryName: string) => void;
+  category: Category;
+  isSelected: boolean;
+  handleClick: (categoryName: Category) => void;
 }
 
 const buttonStylesConfig = {
@@ -17,18 +19,15 @@ const buttonStylesConfig = {
 };
 
 function CategorySelector(props: ICategoriesFilterProps) {
-  const {
-    category: { name, isSelected },
-    handleClick,
-  } = props;
+  const { category, isSelected, handleClick } = props;
 
   return (
     <StyledSelector>
       <Button
-        onClick={() => handleClick(name)}
+        onClick={() => handleClick(category)}
         stylesConfig={buttonStylesConfig}
       >
-        {name}
+        {category}
       </Button>
       {isSelected && <Arrow />}
     </StyledSelector>

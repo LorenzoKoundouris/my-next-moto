@@ -4,65 +4,36 @@ import styled from 'styled-components';
 
 // components
 import CategorySelector from './CategorySelector';
+
+// types
 import Category from '../../../types/Categories';
 
 interface ICategoryFilterProps {
-  categoryFilters: Category[];
-  handleFilter: (selectedFilter: string) => void;
+  filterItems: Category[];
+  handleFilter: (selectedFilter: Category) => void;
+  selectedFilterItem: Category;
 }
 
-interface ICategoryFilterState {
-  categoryFilters: { name: string; isSelected: boolean }[];
-}
+function CategoriesFilter(props: ICategoryFilterProps) {
+  const {
+    handleFilter,
+    filterItems: propsFilterItems,
+    selectedFilterItem,
+  } = props;
 
-class CategoriesFilter extends React.Component<
-  ICategoryFilterProps,
-  ICategoryFilterState
-> {
-  constructor(props: ICategoryFilterProps) {
-    super(props);
+  const filterItems = [...propsFilterItems];
+  filterItems.unshift('All');
 
-    const allCategoryFilters = [
-      {
-        name: 'All',
-        isSelected: true,
-      },
-      ...props.categoryFilters.map(category => ({
-        name: category,
-        isSelected: false,
-      })),
-    ];
+  const categories = filterItems.map(filterItem => (
+    <CategorySelector
+      key={filterItem}
+      category={filterItem}
+      isSelected={filterItem === selectedFilterItem}
+      handleClick={handleFilter}
+    />
+  ));
 
-    this.state = { categoryFilters: allCategoryFilters };
-  }
-
-  private handleClick = (categoryName: string) => {
-    const { handleFilter } = this.props;
-    const { categoryFilters } = this.state;
-
-    const updatedCategories = categoryFilters.map(category => {
-      return { ...category, isSelected: category.name === categoryName };
-    });
-
-    this.setState({ categoryFilters: updatedCategories });
-    handleFilter(categoryName);
-  };
-
-  private getCategories = () => {
-    const { categoryFilters } = this.state;
-
-    return categoryFilters.map(category => (
-      <CategorySelector
-        key={category.name}
-        category={category}
-        handleClick={this.handleClick}
-      />
-    ));
-  };
-
-  public render() {
-    return <CategoriesList>{this.getCategories()}</CategoriesList>;
-  }
+  return <CategoriesList>{categories}</CategoriesList>;
 }
 
 // styles

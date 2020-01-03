@@ -8,20 +8,20 @@ import ModelTile from './ModelTile';
 // interfaces
 import IModel from '../../../interfaces/IModel';
 
-function CategorySection({ id, name, models }: ICategory) {
+function CategorySection({ name, models }: ICategory) {
   return (
-    <StyledSection key={id}>
+    <StyledSection>
       <SectionTitle>{name}</SectionTitle>
       <SectionModels>{getModelTiles(models)}</SectionModels>
     </StyledSection>
   );
 }
 
-// styles
 const getModelTiles = (models: IModel[]) => {
   return models.map(model => <ModelTile key={model.id} model={model} />);
 };
 
+// styles
 const StyledSection = styled.div`
   min-width: 250px;
 `;
