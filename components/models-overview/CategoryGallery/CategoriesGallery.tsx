@@ -10,7 +10,7 @@ import CategoriesFilter from '../CategoryFilter/CategoriesFilter';
 import CategorySection from './CategorySection';
 
 // interfaces
-import ICategory from '../../../interfaces/ICategory';
+import ICategory from '../../../interfaces/i-category';
 import { CATEGORY_ALL } from '../../../utils/constants/model-categories';
 
 // types
@@ -26,9 +26,14 @@ class CategoriesGallery extends React.Component<any, ICategoriesGalleryState> {
   constructor(props: any) {
     super(props);
 
+    const filterItems = [
+      CATEGORY_ALL,
+      ...data.categories.map(category => category.name),
+    ] as Category[];
+
     this.state = {
       categories: data.categories,
-      filterItems: data.categories.map(category => category.name as Category),
+      filterItems,
       selectedFilterItem: CATEGORY_ALL,
     };
   }
