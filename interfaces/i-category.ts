@@ -1,4 +1,4 @@
-import IModel from './IModel';
+import IModel from './i-model';
 
 export default interface ICategory {
   id: number;

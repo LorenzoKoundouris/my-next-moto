@@ -2,11 +2,11 @@
 import styled from 'styled-components';
 
 // components
-import ICategory from '../../../interfaces/ICategory';
+import ICategory from '../../../interfaces/i-category';
 import ModelTile from './ModelTile';
 
 // interfaces
-import IModel from '../../../interfaces/IModel';
+import IModel from '../../../interfaces/i-model';
 
 function CategorySection({ name, models }: ICategory) {
   return (
@@ -27,9 +27,10 @@ const StyledSection = styled.div`
 `;
 
 const SectionTitle = styled.h1`
-  @media screen and (max-width: 439px) {
-    padding: 20px;
+  @media screen and (max-width: 767px) {
+    padding: 30px;
   }
+
   @media screen and (min-width: 768px) {
     padding: 10px;
   }

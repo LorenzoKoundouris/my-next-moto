@@ -1,4 +1,4 @@
-import IModel from '../../../interfaces/IModel';
+import IModel from '../../../interfaces/i-model';
 
 // libs
 import styled from 'styled-components';
