@@ -1,5 +1,5 @@
 // libs
-import React from 'react';
+import { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 // components
@@ -12,9 +12,16 @@ const theme = {
   backgroundColour: '#fff',
   fontColour: '#16171a',
   highlightColour: '#0062ff',
+
+  // mixin
+  gridView: () => `
+    display: grid;
+    grid-gap: 8px;
+    width: 100%;
+  `,
 };
 
-class Page extends React.Component {
+class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -49,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
 // styles
 const StyledPage = styled.div`
   position: relative;
-  background: ${props => props.theme.backgroundColour};
+  background: ${(props) => props.theme.backgroundColour};
 `;
 
 export default Page;

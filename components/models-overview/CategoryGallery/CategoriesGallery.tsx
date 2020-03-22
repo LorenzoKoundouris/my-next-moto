@@ -1,5 +1,5 @@
 // libs
-import React from 'react';
+import { Component } from 'react';
 import styled from 'styled-components';
 
 // data
@@ -22,7 +22,7 @@ interface ICategoriesGalleryState {
   selectedFilterItem: Category;
 }
 
-class CategoriesGallery extends React.Component<any, ICategoriesGalleryState> {
+class CategoriesGallery extends Component<any, ICategoriesGalleryState> {
   constructor(props: any) {
     super(props);
 
