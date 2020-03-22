@@ -15,11 +15,10 @@ class AllArticles extends Component {
 }
 
 const StyledGrid = styled.div`
-  display: grid;
-  grid-gap: 8px;
+  ${(props) => props.theme.gridView}
   grid-auto-flow: row;
   overflow: hidden;
-  width: 100%;
+  padding: 8px;
 
   @media screen and (min-width: 720px) {
     grid-template-columns: repeat(2, 1fr);

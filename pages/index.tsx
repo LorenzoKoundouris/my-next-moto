@@ -126,9 +126,7 @@ function Index() {
   );
 }
 
-const IndexPage = styled.div`
-  background-color: peachpuff;
-`;
+const IndexPage = styled.div``;
 
 // styles
 const LowercaseTitle = styled.h1`

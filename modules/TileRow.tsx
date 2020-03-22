@@ -27,12 +27,10 @@ class TileRow extends Component<IProps> {
 }
 
 const StyledGrid = styled.div`
-  display: grid;
-  grid-gap: 8px;
+  ${(props) => props.theme.gridView}
   grid-auto-flow: column;
   grid-template-rows: 1fr;
   overflow-x: scroll;
-  width: 100%;
 `;
 
 const TipsterQuickLinks = styled(StyledGrid)`

@@ -12,6 +12,13 @@ const theme = {
   backgroundColour: '#fff',
   fontColour: '#16171a',
   highlightColour: '#0062ff',
+
+  // mixin
+  gridView: () => `
+    display: grid;
+    grid-gap: 8px;
+    width: 100%;
+  `,
 };
 
 class Page extends Component {
@@ -49,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
 // styles
 const StyledPage = styled.div`
   position: relative;
-  background: ${props => props.theme.backgroundColour};
+  background: ${(props) => props.theme.backgroundColour};
 `;
 
 export default Page;

@@ -20,7 +20,7 @@ function Plank({ media, title, subtitle }: IProps) {
 }
 
 const StyledPlank = styled.div`
-  display: grid;
+  ${(props) => props.theme.gridView}
   grid-template-columns: 100px auto;
 `;
 
@@ -30,7 +30,7 @@ const Media = styled.img`
 `;
 
 const Metadata = styled.div`
-  display: grid;
+  ${(props) => props.theme.gridView}
   grid-template-rows: repeat(2, 1fr);
 `;
 
