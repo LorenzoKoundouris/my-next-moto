@@ -3,21 +3,20 @@ import styled from 'styled-components';
 import ContentBlock from '../components/common/content-block/ContentBlock';
 import Row from '../components/common/Row';
 import Tile from '../components/common/content-block/layout/Tile';
-import TipsterRow from '../modules/TipsterQuickLinks';
-import FeaturedArticles from '../modules/FeaturedArticles';
+import TileRow, { Layout } from '../modules/TileRow';
 import Plank from '../components/common/content-block/layout/Plank';
-import AllArticles from '../modules/AllArticles';
+import AllArticles from '../modules/PlankColumns';
 
 function Index() {
   return (
-    <>
+    <IndexPage>
       {/* example of setting styles to Row which may be overridden by children*/}
       <Row styles={{ textTransform: 'uppercase' }}>
         <LowercaseTitle>Page title</LowercaseTitle>
       </Row>
       Featured Articles as Tiles
       <Row>
-        <FeaturedArticles>
+        <TileRow layout={Layout.FEATURED_TIPS}>
           <ContentBlock>
             <Tile
               media='http://placecorgi.com/300/300'
@@ -39,7 +38,7 @@ function Index() {
               subtitle='Subtitle'
             />
           </ContentBlock>
-        </FeaturedArticles>
+        </TileRow>
       </Row>
       Normal Articles as Planks
       <Row>
@@ -71,7 +70,7 @@ function Index() {
       </Row>
       Tipster Quick Links
       <Row>
-        <TipsterRow>
+        <TileRow layout={Layout.TIPSTER_QUICK_LINKS}>
           <ContentBlock>
             <Tile
               media='http://placecorgi.com/300/300'
@@ -121,11 +120,15 @@ function Index() {
               subtitle='Subtitle'
             />
           </ContentBlock>
-        </TipsterRow>
+        </TileRow>
       </Row>
-    </>
+    </IndexPage>
   );
 }
+
+const IndexPage = styled.div`
+  background-color: peachpuff;
+`;
 
 // styles
 const LowercaseTitle = styled.h1`
