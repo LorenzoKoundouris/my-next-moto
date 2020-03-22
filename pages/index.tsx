@@ -5,7 +5,7 @@ import Row from '../components/common/Row';
 import Tile from '../components/common/content-block/layout/Tile';
 import TileRow, { Layout } from '../modules/TileRow';
 import Plank from '../components/common/content-block/layout/Plank';
-import AllArticles from '../modules/PlankColumns';
+import PlankColumns from '../modules/PlankColumns';
 
 function Index() {
   return (
@@ -42,31 +42,36 @@ function Index() {
       </Row>
       Normal Articles as Planks
       <Row>
-        <AllArticles>
-          <Plank
-            media='http://placecorgi.com/300/300'
-            title='Title'
-            subtitle='Subtitle'
-          />
-
-          <Plank
-            media='http://placecorgi.com/300/300'
-            title='Title'
-            subtitle='Subtitle'
-          />
-
-          <Plank
-            media='http://placecorgi.com/300/300'
-            title='Title'
-            subtitle='Subtitle'
-          />
-
-          <Plank
-            media='http://placecorgi.com/300/300'
-            title='Title'
-            subtitle='Subtitle'
-          />
-        </AllArticles>
+        <PlankColumns>
+          <ContentBlock>
+            <Plank
+              media='http://placecorgi.com/300/300'
+              title='Title'
+              subtitle='Subtitle'
+            />
+          </ContentBlock>
+          <ContentBlock>
+            <Plank
+              media='http://placecorgi.com/300/300'
+              title='Title'
+              subtitle='Subtitle'
+            />
+          </ContentBlock>
+          <ContentBlock>
+            <Plank
+              media='http://placecorgi.com/300/300'
+              title='Title'
+              subtitle='Subtitle'
+            />
+          </ContentBlock>
+          <ContentBlock>
+            <Plank
+              media='http://placecorgi.com/300/300'
+              title='Title'
+              subtitle='Subtitle'
+            />
+          </ContentBlock>
+        </PlankColumns>
       </Row>
       Tipster Quick Links
       <Row>
