@@ -19,6 +19,7 @@ function Tile({ media, title, subtitle }: IProps) {
 
 const StyledTile = styled.div`
   display: grid;
+  width: 100%;
   grid-template-rows: repeat(3, auto);
   grid-template-columns: 1fr;
 `;

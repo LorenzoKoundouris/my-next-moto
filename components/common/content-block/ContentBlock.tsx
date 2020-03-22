@@ -18,11 +18,12 @@ class ContentBlock extends Component<IProps> {
 }
 
 const Content = styled.div`
-  background-color: ${props => props.theme.primaryColour};
-  border: 1px solid ${props => props.theme.secondaryColour};
+  display: flex;
+  flex-grow: 1;
+  background-color: ${(props) => props.theme.primaryColour};
+  border: 1px solid ${(props) => props.theme.secondaryColour};
   border-radius: 8px;
   overflow: hidden;
-  width: 100%;
 `;
 
 export default ContentBlock;

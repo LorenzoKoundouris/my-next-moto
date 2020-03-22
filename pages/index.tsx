@@ -32,6 +32,13 @@ function Index() {
               subtitle='Subtitle'
             />
           </ContentBlock>
+          <ContentBlock>
+            <Tile
+              media='http://placecorgi.com/300/300'
+              title='Title'
+              subtitle='Subtitle'
+            />
+          </ContentBlock>
         </FeaturedArticles>
       </Row>
       Normal Articles as Planks
@@ -114,7 +121,6 @@ function Index() {
               subtitle='Subtitle'
             />
           </ContentBlock>
-          <ContentBlock></ContentBlock>
         </TipsterRow>
       </Row>
     </>

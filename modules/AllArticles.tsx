@@ -18,10 +18,12 @@ const StyledGrid = styled.div`
   display: grid;
   grid-gap: 8px;
   grid-auto-flow: row;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
   overflow: hidden;
   width: 100%;
+
+  @media screen and (min-width: 720px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export default AllArticles;

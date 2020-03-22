@@ -25,7 +25,6 @@ const StyledPlank = styled.div`
 `;
 
 const Media = styled.img`
-border-radius:
   width: 100%;
   object-fit: cover;
 `;

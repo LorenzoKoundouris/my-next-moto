@@ -15,8 +15,12 @@ const StyledGrid = styled.div`
   grid-auto-flow: column;
   grid-template-rows: 1fr;
   grid-template-columns: auto;
-  overflow: hidden;
+  overflow-x: scroll;
   width: 100%;
+
+  & > * {
+    min-width: 150px; /* scroll larger items on mobile*/
+  }
 `;
 
 export default FeaturedArticles;
