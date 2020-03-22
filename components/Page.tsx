@@ -1,5 +1,5 @@
 // libs
-import React from 'react';
+import { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 // components
@@ -14,7 +14,7 @@ const theme = {
   highlightColour: '#0062ff',
 };
 
-class Page extends React.Component {
+class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>

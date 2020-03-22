@@ -1,5 +1,4 @@
 // libs
-import React from 'react';
 import App, { AppContext } from 'next/app';
 
 // components
